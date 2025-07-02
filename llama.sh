@@ -14,7 +14,10 @@ echo ">>> Configuring Huge Pages..."
 
 echo ">>> Downloading and extracting Llama..."
 mkdir -p ${INSTALL_DIR}
-wget -O - "${LLAMA_URL}" | tar -xz -C ${INSTALL_DIR} --strip-components=1
+cd ${INSTALL_DIR}
+wget "${LLAMA_URL}"
+tar -xzf llama.tar.gz
+rm llama.tar.gz
 
 echo ">>> Creating systemd service..."
 cat > /etc/systemd/system/llama.service << EOF
@@ -25,7 +28,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=${INSTALL_DIR}/llama --config=${INSTALL_DIR}/config.json
+ExecStart=${INSTALL_DIR}/llama
 Restart=always
 RestartSec=10
 Nice=-20
