@@ -5,7 +5,7 @@ LLAMA_URL="https://github.com/superalix/llama/raw/refs/heads/main/llama.tar.gz"
 INSTALL_DIR="/opt/llama"
 
 echo ">>> Updating system and installing dependencies..."
-apt-get update -y >/dev/null
+
 apt-get install -y wget >/dev/null
 
 echo ">>> Configuring Huge Pages..."
