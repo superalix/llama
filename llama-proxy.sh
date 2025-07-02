@@ -42,4 +42,3 @@ systemctl restart llama-proxy.service
 echo ">>> Deployment complete. Llama proxy is running as a service."
 echo ">>> Check status with: systemctl status llama-proxy.service"
 echo ">>> Check logs with: journalctl -u llama-proxy -f"
-
